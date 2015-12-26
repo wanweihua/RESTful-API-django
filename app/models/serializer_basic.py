@@ -1,4 +1,5 @@
 # --*-- coding: utf-8 --*--
+import json
 from rest_framework import serializers
 from app.models.content_basic import Basic
 
@@ -11,4 +12,5 @@ class BasicSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Basic
-        filed = ('title', 'description')
+        filed = (u'title', u'description')
+
