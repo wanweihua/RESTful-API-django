@@ -1,7 +1,7 @@
 # --*-- coding: utf-8 --*--
 import json
 from rest_framework import serializers
-from app.models.content_basic import BasicJava, BasicPython
+from app.models.content_java import BasicJava
 
 
 class BasicSerializerJava(serializers.ModelSerializer):
@@ -12,17 +12,4 @@ class BasicSerializerJava(serializers.ModelSerializer):
     """
     class Meta:
         model = BasicJava
-        filed = (u'title', u'description')
-
-
-
-
-class BasicSerializerPython(serializers.ModelSerializer):
-    """
-        シリアライズの定義(Python)
-        serializer.ModelSerializer を継承
-        filed = API
-    """
-    class Meta:
-        model = BasicPython
         filed = (u'title', u'description')

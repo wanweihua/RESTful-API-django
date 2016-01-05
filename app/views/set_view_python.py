@@ -1,0 +1,13 @@
+# --*-- coding: utf-8 --*--
+from rest_framework import viewsets
+from app.models.content_python import BasicPython
+from app.models.serializer_python import BasicSerializerPython
+
+
+class BasicViewSetPython(viewsets.ModelViewSet):
+    """
+        PythonViewSet の定義
+        modelのクエリセット
+    """
+    queryset = BasicPython.objects.all()
+    serializer_class = BasicSerializerPython

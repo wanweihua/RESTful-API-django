@@ -1,3 +1,5 @@
+# --*-- coding: utf-8 --*--
+
 """
 Django settings for restful_api project.
 
@@ -89,6 +91,7 @@ DATABASES = {
 }
 
 
+# rest フレームワーク
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
