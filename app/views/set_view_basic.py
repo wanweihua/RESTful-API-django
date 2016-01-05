@@ -2,14 +2,23 @@
 
 from django.shortcuts import render
 from rest_framework import viewsets
-from app.models.content_basic import Basic
-from app.models.serializer_basic import BasicSerializer
+from app.models.content_basic import BasicJava, BasicPython
+from app.models.serializer_basic import BasicSerializerJava, BasicSerializerPython
 
 
-class BasicViewSet(viewsets.ModelViewSet):
+class BasicViewSetJava(viewsets.ModelViewSet):
     """
-        ViewSet の定義
+        JavaViewSet の定義
         modelのクエリセット
     """
-    queryset = Basic.objects.all()
-    serializer_class = BasicSerializer
+    queryset = BasicJava.objects.all()
+    serializer_class = BasicSerializerJava
+
+
+class BasicViewSetPython(viewsets.ModelViewSet):
+    """
+        PythonViewSet の定義
+        modelのクエリセット
+    """
+    queryset = BasicPython.objects.all()
+    serializer_class = BasicSerializerPython

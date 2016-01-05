@@ -16,9 +16,10 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from app.routes.urls import router
+from app.routes.urls import java_router, python_router
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/java/', include(router.urls, namespace='api')),
+    url(r'^api/java/', include(java_router.urls, namespace='java_api')),
+    url(r'^api/python/', include(python_router.urls, namespace='python_api')),
 ]
