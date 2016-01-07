@@ -1,6 +1,6 @@
 # --*-- coding: utf-8 --*--
 from rest_framework import serializers
-from app.models.content_android import BasicAndroid
+from app.models.model_android import BasicAndroid
 
 
 class BasicSerializerAndroid(serializers.ModelSerializer):

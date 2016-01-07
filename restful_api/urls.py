@@ -17,10 +17,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from app.routes.urls import java_router, python_router, android_router
+from rest_framework.authtoken import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/java/', include(java_router.urls, namespace='java_api')),
     url(r'^api/python/', include(python_router.urls, namespace='python_api')),
     url(r'^api/android/', include(android_router.urls, namespace='android_api')),
+    url(r'^api-token-auth/', auth_views.obtain_auth_token, name='auth-api'),
 ]

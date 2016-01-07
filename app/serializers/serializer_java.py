@@ -1,7 +1,7 @@
 # --*-- coding: utf-8 --*--
 import json
 from rest_framework import serializers
-from app.models.content_java import BasicJava
+from app.models.model_java import BasicJava
 
 
 class BasicSerializerJava(serializers.ModelSerializer):

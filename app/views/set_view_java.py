@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from app.models.content_java import BasicJava
+from app.models.model_java import BasicJava
 from app.serializers.serializer_java import BasicSerializerJava
 
 

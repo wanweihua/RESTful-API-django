@@ -1,7 +1,7 @@
 # --*-- coding: utf-8 --*--
 
 from rest_framework import serializers
-from app.models.content_python import BasicPython
+from app.models.model_python import BasicPython
 
 
 class BasicSerializerPython(serializers.ModelSerializer):
