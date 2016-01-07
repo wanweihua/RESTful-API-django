@@ -6,7 +6,7 @@ from django.db import models
 
 class BasicJava(models.Model):
     """
-        Javaプログラミング基礎ステップ
+    Javaプログラミング基礎ステップ
     """
     title = models.CharField(max_length=50)
     description = models.TextField(max_length=500)

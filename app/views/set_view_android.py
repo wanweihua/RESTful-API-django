@@ -1,7 +1,7 @@
 # --*-- coding: utf-8 --*--
 from rest_framework import viewsets
 from app.models.content_android import BasicAndroid
-from app.models.serializer_android import BasicSerializerAndroid
+from app.serializers.serializer_android import BasicSerializerAndroid
 
 
 class BasicViewSetAndroid(viewsets.ModelViewSet):

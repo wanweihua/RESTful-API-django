@@ -6,9 +6,9 @@ from app.models.content_java import BasicJava
 
 class BasicSerializerJava(serializers.ModelSerializer):
     """
-        シリアライズの定義(Java)
-        serializer.ModelSerializer を継承
-        filed = API
+    シリアライズの定義(Java)
+    serializer.ModelSerializer を継承
+    filed = API
     """
     class Meta:
         model = BasicJava

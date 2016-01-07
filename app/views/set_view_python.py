@@ -1,7 +1,7 @@
 # --*-- coding: utf-8 --*--
 from rest_framework import viewsets
 from app.models.content_python import BasicPython
-from app.models.serializer_python import BasicSerializerPython
+from app.serializers.serializer_python import BasicSerializerPython
 
 
 class BasicViewSetPython(viewsets.ModelViewSet):
