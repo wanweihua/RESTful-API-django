@@ -5,7 +5,11 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django import forms
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 class UserModel(models.Model):

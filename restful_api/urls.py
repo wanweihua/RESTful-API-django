@@ -21,6 +21,7 @@ from rest_framework.authtoken import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^api/java/', include(java_router.urls, namespace='java_api')),
     url(r'^api/python/', include(python_router.urls, namespace='python_api')),
     url(r'^api/android/', include(android_router.urls, namespace='android_api')),
