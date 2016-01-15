@@ -1,5 +1,6 @@
 # --*-- coding: utf-8 --*--
-from oauth_provider.backends import User
+from django.contrib.auth.models import User
+
 from rest_framework import serializers
 
 
