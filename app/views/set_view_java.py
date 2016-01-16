@@ -1,4 +1,5 @@
 # --*-- coding: utf-8  --*--
+from requests import delete
 
 from rest_framework import status
 from rest_framework import viewsets
@@ -43,3 +44,15 @@ class BasicViewSetJava(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        """
+        DELETE method
+        :param request:
+        :param format:
+        :return:
+        """
+        java_basic = self.get_object(pk)
+        java_basic.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
