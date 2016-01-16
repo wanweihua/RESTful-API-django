@@ -97,7 +97,6 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
-        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
     )
 }
 
