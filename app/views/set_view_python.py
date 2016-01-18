@@ -56,3 +56,16 @@ class BasicViewSetPython(viewsets.ModelViewSet):
         python_basic.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, format=None):
+        """
+        PUT method
+        :param request:
+        :param format:
+        :return:
+        """
+        serializer = BasicSerializerPython(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
