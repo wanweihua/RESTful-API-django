@@ -10,6 +10,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.contrib.auth.models import User
 
 
 class UserModel(models.Model):
@@ -27,4 +28,7 @@ class UserModel(models.Model):
         """
         if created:
             Token.objects.create(user=instance)
+
+        for user in User.objects.all():
+            Token.objects.get_or_create(user=user)
 
