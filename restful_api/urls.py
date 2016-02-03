@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^sign-up/$', SignUp.as_view(), name="sign_up"),
     url(r'^api-token-auth/', auth_views.obtain_auth_token, name='auth-api'),
-    url(r'^api/java/', include(java_router.urls, namespace='java_api')),
-    url(r'^api/python/', include(python_router.urls, namespace='python_api')),
-    url(r'^api/android/', include(android_router.urls, namespace='android_api')),
+    url(r'^api/v1/java/', include(java_router.urls, namespace='java_api')),
+    url(r'^api/v1/python/', include(python_router.urls, namespace='python_api')),
+    url(r'^api/v1/android/', include(android_router.urls, namespace='android_api')),
 ]

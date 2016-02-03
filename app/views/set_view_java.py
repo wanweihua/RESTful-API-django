@@ -5,8 +5,8 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from app.models.model_java import BasicJava
-from app.serializers.serializer_java import BasicSerializerJava
+from app.models.model_java import BasicJava, TimeLineJava
+from app.serializers.serializer_java import BasicSerializerJava, SerializerJavaTimeLine
 
 
 class BasicViewSetJava(viewsets.ModelViewSet):
@@ -69,3 +69,43 @@ class BasicViewSetJava(viewsets.ModelViewSet):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class JavaTimeLime(viewsets.ModelViewSet):
+    """
+    JavaTimeLineのView
+    modelクエリ
+    """
+
+    queryset = TimeLineJava.objects.all()
+    serializer_class = SerializerJavaTimeLine
+
+
+    @api_view(['GET', 'POST'])
+    def get(self, request, format=None):
+        """
+        GET
+        :param request:
+        :param format:
+        :return:
+        """
+
+        timeline_data = TimeLineJava.objects.all()
+        serializer = SerializerJavaTimeLine(timeline_data, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        """
+        POST
+        :param request:
+        :param format:
+        :return:
+        """
+
+        serializer = SerializerJavaTimeLine(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

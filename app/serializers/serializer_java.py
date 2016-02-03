@@ -1,7 +1,7 @@
 # --*-- coding: utf-8 --*--
 import json
 from rest_framework import serializers
-from app.models.model_java import BasicJava
+from app.models.model_java import BasicJava, TimeLineJava
 
 
 class BasicSerializerJava(serializers.ModelSerializer):
@@ -13,3 +13,12 @@ class BasicSerializerJava(serializers.ModelSerializer):
     class Meta:
         model = BasicJava
         filed = (u'title', u'description')
+
+
+class SerializerJavaTimeLine(serializers.ModelSerializer):
+    """
+    シリアライズ定義(Javaのタイムライン)
+    """
+    class Meta:
+        model = TimeLineJava
+        field = (u'first_name', u'comment')
