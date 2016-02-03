@@ -3,7 +3,7 @@
 from django.contrib import admin
 from app.models.model_android import BasicAndroid
 from app.models.model_auth_token import UserModel
-from app.models.model_java import BasicJava
+from app.models.model_java import BasicJava, TimeLineJava
 from app.models.model_python import BasicPython
 
 
@@ -26,3 +26,9 @@ class PythonAdmin(admin.ModelAdmin):
 @admin.register(BasicAndroid)
 class AndroidAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(TimeLineJava)
+class TimeLineJavaAdmin(admin.ModelAdmin):
+    pass
+
