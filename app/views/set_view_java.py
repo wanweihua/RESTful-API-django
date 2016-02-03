@@ -18,7 +18,7 @@ class BasicViewSetJava(viewsets.ModelViewSet):
     serializer_class = BasicSerializerJava
 
 
-    @api_view(['GET', 'POST'])
+    @api_view(['GET', 'POST', 'PUT', 'DELETE'])
     def get(self, request, format=None):
         """
         GET method

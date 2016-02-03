@@ -25,4 +25,4 @@ class TimeLineJava(models.Model):
     comment = models.TextField(max_length=1000)
 
     def encode(self):
-        return encode(self.first_name, self.comment)
+        return encode(self.comment)

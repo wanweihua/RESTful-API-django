@@ -16,16 +16,21 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(BasicJava)
 class JavaAdmin(admin.ModelAdmin):
     pass
-
+    list_display = ('title', 'description')
+    list_display_links = ('title', 'description')
 
 @admin.register(BasicPython)
 class PythonAdmin(admin.ModelAdmin):
     pass
+    list_display = ('title', 'description')
+    list_display_links = ('title', 'description')
 
 
 @admin.register(BasicAndroid)
 class AndroidAdmin(admin.ModelAdmin):
     pass
+    list_display = ('title', 'description')
+    list_display_links = ('title', 'description')
 
 
 @admin.register(TimeLineJava)
