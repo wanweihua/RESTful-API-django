@@ -13,3 +13,6 @@ class BasicAndroid(models.Model):
 
     def encode(self):
         return encode(self.title, self.description)
+
+
+

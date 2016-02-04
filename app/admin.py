@@ -1,10 +1,10 @@
 # --*-- coding: utf-8 --*--
 
 from django.contrib import admin
-from app.models.model_android import BasicAndroid
+from app.models.android.model_android import BasicAndroid
+from app.models.java.model_java import BasicJava, TimeLineJava
 from app.models.model_auth_token import UserModel
-from app.models.model_java import BasicJava, TimeLineJava
-from app.models.model_python import BasicPython, TimeLinePython
+from app.models.python.model_python import BasicPython, TimeLinePython
 
 
 @admin.register(UserModel)
