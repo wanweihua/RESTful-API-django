@@ -71,7 +71,7 @@ class BasicViewSetJava(viewsets.ModelViewSet):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class JavaTimeLime(viewsets.ModelViewSet):
+class JavaTimeLine(viewsets.ModelViewSet):
     """
     JavaTimeLineのView
     modelクエリ

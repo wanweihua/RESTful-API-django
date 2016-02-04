@@ -15,3 +15,12 @@ class BasicPython(models.Model):
     def encode(self):
         return encode(self.title, self.description)
 
+
+class TimeLinePython(models.Model):
+    """
+        python Timeline
+    """
+    comment = models.TextField(max_length=1000)
+
+    def encode(self):
+        return encode(self.comment)
