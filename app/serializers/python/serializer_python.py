@@ -1,7 +1,8 @@
 # --*-- coding: utf-8 --*--
 
 from rest_framework import serializers
-from app.models.model_python import BasicPython, TimeLinePython
+from app.models.python.model_python import BasicPython
+from app.models.python.model_python import TimeLinePython
 
 
 class BasicSerializerPython(serializers.ModelSerializer):

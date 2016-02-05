@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from app.models.model_android import BasicAndroid
-from app.serializers.serializer_android import BasicSerializerAndroid
+from app.models.android.model_android import BasicAndroid
+from app.serializers.android.serializer_android import BasicSerializerAndroid
 
 
 class BasicViewSetAndroid(viewsets.ModelViewSet):

@@ -1,23 +1,24 @@
-# --*-- coding: utf-8 --*--
+# --*-- coding: utf-8  --*--
+from requests import delete
 
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from app.models.model_python import BasicPython, TimeLinePython
-from app.serializers.serializer_python import BasicSerializerPython, SerializerPythonTimeLine
+from app.models.java.model_java import BasicJava, TimeLineJava
+from app.serializers.java.serializer_java import BasicSerializerJava, SerializerJavaTimeLine
 
 
-class BasicViewSetPython(viewsets.ModelViewSet):
+class BasicViewSetJava(viewsets.ModelViewSet):
     """
-        PythonViewSet の定義
-        modelのクエリセット
+    JavaViewSet の定義
+    modelのクエリセット
     """
-    queryset = BasicPython.objects.all()
-    serializer_class = BasicSerializerPython
+    queryset = BasicJava.objects.all()
+    serializer_class = BasicSerializerJava
 
 
-    @api_view(['GET', 'POST'])
+    @api_view(['GET', 'POST', 'PUT', 'DELETE'])
     def get(self, request, format=None):
         """
         GET method
@@ -25,10 +26,9 @@ class BasicViewSetPython(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        java_basic = BasicPython.objects.all()
-        serializer = BasicSerializerPython(java_basic, many=True)
+        java_basic = BasicJava.objects.all()
+        serializer = BasicSerializerJava(java_basic, many=True)
         return Response(serializer.data)
-
 
     def post(self, request, format=None):
         """
@@ -37,7 +37,7 @@ class BasicViewSetPython(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        serializer = BasicSerializerPython(data=request.data)
+        serializer = BasicSerializerJava(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -52,8 +52,8 @@ class BasicViewSetPython(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        python_basic = self.get_object(pk)
-        python_basic.delete()
+        java_basic = self.get_object(pk)
+        java_basic.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -64,21 +64,21 @@ class BasicViewSetPython(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        serializer = BasicSerializerPython(data=request.data)
+        serializer = BasicSerializerJava(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class PythonTimeLine(viewsets.ModelViewSet):
+class JavaTimeLine(viewsets.ModelViewSet):
     """
-    PythonTimeLineのView
+    JavaTimeLineのView
     modelクエリ
     """
 
-    queryset = TimeLinePython.objects.all()
-    serializer_class = SerializerPythonTimeLine
+    queryset = TimeLineJava.objects.all()
+    serializer_class = SerializerJavaTimeLine
 
 
     @api_view(['GET', 'POST'])
@@ -90,8 +90,8 @@ class PythonTimeLine(viewsets.ModelViewSet):
         :return:
         """
 
-        timeline_data = TimeLinePython.objects.all()
-        serializer = SerializerPythonTimeLine(timeline_data, many=True)
+        timeline_data = TimeLineJava.objects.all()
+        serializer = SerializerJavaTimeLine(timeline_data, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
@@ -102,7 +102,7 @@ class PythonTimeLine(viewsets.ModelViewSet):
         :return:
         """
 
-        serializer = SerializerPythonTimeLine(data=request.data)
+        serializer = SerializerJavaTimeLine(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
