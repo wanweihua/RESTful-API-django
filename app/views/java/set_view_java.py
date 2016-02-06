@@ -45,14 +45,14 @@ class BasicViewSetJava(viewsets.ModelViewSet):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
+    def delete(self, request, format=None):
         """
         DELETE method
         :param request:
         :param format:
         :return:
         """
-        java_basic = self.get_object(pk)
+        java_basic = self.get_object()
         java_basic.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -81,7 +81,7 @@ class JavaTimeLine(viewsets.ModelViewSet):
     serializer_class = SerializerJavaTimeLine
 
 
-    @api_view(['GET', 'POST'])
+    @api_view(['GET', 'POST', 'DELETE', 'PUT'])
     def get(self, request, format=None):
         """
         GET
@@ -109,3 +109,32 @@ class JavaTimeLine(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, format=None):
+        """
+        DELETE
+        :param request:
+        :param format:
+        :return:
+        """
+
+        comment_data = self.get_object()
+        comment_data.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+    def put(self, request, format=None):
+        """
+        PUT
+        :param request:
+        :param format:
+        :return:
+        """
+
+        serializer = SerializerJavaTimeLine(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+

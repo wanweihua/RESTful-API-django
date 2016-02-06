@@ -109,3 +109,33 @@ class PythonTimeLine(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+    def delete(self, request, format=None):
+        """
+        DELETE
+        :param request:
+        :param format:
+        :return:
+        """
+
+        comment_data = self.get_object()
+        comment_data.delete()   
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+    def put(self, request, format=None):
+        """
+        PUT
+        :param request:
+        :param format:
+        :return:
+        """
+
+        serializer = SerializerPythonTimeLine(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
