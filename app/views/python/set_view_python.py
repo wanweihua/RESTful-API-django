@@ -96,7 +96,7 @@ class PythonTimeLine(viewsets.ModelViewSet):
 
     def post(self, request, format=None):
         """
-        POST
+        POST method
         :param request:
         :param format:
         :return:
@@ -113,21 +113,21 @@ class PythonTimeLine(viewsets.ModelViewSet):
 
     def delete(self, request, format=None):
         """
-        DELETE
+        DELETE method
         :param request:
         :param format:
         :return:
         """
 
         comment_data = self.get_object()
-        comment_data.delete()   
+        comment_data.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
     def put(self, request, format=None):
         """
-        PUT
+        PUT method
         :param request:
         :param format:
         :return:
