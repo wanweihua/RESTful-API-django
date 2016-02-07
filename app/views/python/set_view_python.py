@@ -17,7 +17,7 @@ class BasicViewSetPython(viewsets.ModelViewSet):
     serializer_class = BasicSerializerPython
 
 
-    @api_view(['GET', 'POST'])
+    @api_view(['GET', 'POST', 'DELETE', 'PUT'])
     def get(self, request, format=None):
         """
         GET method
@@ -81,7 +81,7 @@ class PythonTimeLine(viewsets.ModelViewSet):
     serializer_class = SerializerPythonTimeLine
 
 
-    @api_view(['GET', 'POST'])
+    @api_view(['GET', 'POST', 'DELETE', 'PUT'])
     def get(self, request, format=None):
         """
         GET
