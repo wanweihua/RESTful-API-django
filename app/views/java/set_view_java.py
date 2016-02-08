@@ -32,7 +32,7 @@ class BasicViewSetJava(viewsets.ModelViewSet):
 
     def post(self, request, format=None):
         """
-        POST amethod
+        POST amethoda
         :param request:
         :param format:
         :return:
