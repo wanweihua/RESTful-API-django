@@ -1,3 +1,5 @@
-Rest Framework 
-django rest framework 
+#RestAPI
+use mysql, django, restful framework
+deploy to centos
+
 
