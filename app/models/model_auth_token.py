@@ -26,9 +26,21 @@ class UserModel(models.Model):
         :param kwargs:
         :return:
         """
+
+        # ユーザデータModel
+        name = models.CharField(max_length=200)
+        id = models.IntegerField(max_length=100, default=0)
+        email = models.EmailField(max_length=200)
+        image = models.ImageField()
+
+
         if created:
             Token.objects.create(user=instance)
 
         for user in User.objects.all():
             Token.objects.get_or_create(user=user)
+
+
+        def encode(self):
+            return encode(self.name, self.id, self.email, self.image)
 

@@ -29,3 +29,12 @@ class SignUp(generics.CreateAPIView):
         serializer = SignUpSerializer(login_data, many=True)
         return Response(serializer.data)
 
+
+    def post(self, request, *args, **kwargs):
+        """
+        POST method
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
