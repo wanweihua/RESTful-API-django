@@ -1,4 +1,5 @@
 # --*-- coding: utf-8 --*--
+from rest_framework import status
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework import permissions
@@ -30,11 +31,20 @@ class SignUp(generics.CreateAPIView):
         return Response(serializer.data)
 
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args):
         """
         POST method
         :param request:
         :param args:
-        :param kwargs:
         :return:
         """
+
+        serializer = SignUpSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
