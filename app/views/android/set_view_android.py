@@ -25,8 +25,8 @@ class BasicViewSetAndroid(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        java_basic = BasicAndroid.objects.all()
-        serializer = BasicSerializerAndroid(java_basic, many=True)
+        model_data = BasicAndroid.objects.all()
+        serializer = BasicSerializerAndroid(model_data, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
@@ -51,8 +51,8 @@ class BasicViewSetAndroid(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        android_basic = self.get_object(pk)
-        android_basic.delete()
+        model_data = self.get_object(pk)
+        model_data.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 

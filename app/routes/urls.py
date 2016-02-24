@@ -4,6 +4,7 @@ from rest_framework import routers
 
 # java routers
 from app.views.android.set_view_android import BasicViewSetAndroid
+from app.views.dictionary.set_view_dictionary import DictionaryViewSet
 from app.views.java.set_view_java import BasicViewSetJava
 from app.views.java.set_view_java import JavaTimeLine
 from app.views.python.set_view_python import BasicViewSetPython
@@ -26,3 +27,7 @@ python_router.register(r'timeline', PythonTimeLine)
 android_router = routers.DefaultRouter()
 android_router.register(r'basic', BasicViewSetAndroid)
 
+
+# dictionary routers
+dictionary_router = routers.DefaultRouter()
+dictionary_router.register(r'dictionary', DictionaryViewSet)

@@ -26,8 +26,8 @@ class BasicViewSetJava(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        java_basic = BasicJava.objects.all()
-        serializer = BasicSerializerJava(java_basic, many=True)
+        model_data = BasicJava.objects.all()
+        serializer = BasicSerializerJava(model_data, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
@@ -52,8 +52,8 @@ class BasicViewSetJava(viewsets.ModelViewSet):
         :param format:
         :return:
         """
-        java_basic = self.get_object()
-        java_basic.delete()
+        model_data = self.get_object()
+        model_data.delete()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -69,6 +69,7 @@ class BasicViewSetJava(viewsets.ModelViewSet):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class JavaTimeLine(viewsets.ModelViewSet):
