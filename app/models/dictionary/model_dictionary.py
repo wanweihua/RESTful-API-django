@@ -10,6 +10,7 @@ from django.db import models
 class DictionaryModel(models.Model):
     """
     辞書モデルclass
+    API
     """
 
     words = models.CharField(max_length=100)
