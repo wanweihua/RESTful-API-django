@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^sign-up/$', SignUp.as_view(), name="sign_up"),
     url(r'^api-token-auth/', auth_views.obtain_auth_token, name='auth-api'),
 
-    url(r'^api/v1/dictionary/', include(dictionary_router.urls, namespace='dictionry_api')),
+    url(r'^api/v1/', include(dictionary_router.urls, namespace='dictionry_api')),
 
     url(r'^api/v1/java/', include(java_router.urls, namespace='java_basic_api')),
     url(r'^api/v1/java/', include(java_time.urls, namespace='java_timeline_api')),
