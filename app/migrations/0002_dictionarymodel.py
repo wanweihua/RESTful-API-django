@@ -12,10 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='TimeLinePython',
+            name='DictionaryModel',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('comment', models.TextField(max_length=1000)),
+                ('words', models.CharField(max_length=100)),
+                ('contents', models.TextField()),
             ],
         ),
     ]

@@ -2,6 +2,7 @@
 
 from django.contrib import admin
 from app.models.android.model_android import BasicAndroid
+from app.models.dictionary.model_dictionary import DictionaryModel
 from app.models.java.model_java import BasicJava, TimeLineJava
 from app.models.model_auth_token import UserModel
 from app.models.python.model_python import BasicPython, TimeLinePython
@@ -39,3 +40,10 @@ class TimeLineJavaAdmin(admin.ModelAdmin):
 @admin.register(TimeLinePython)
 class TimeLinePythonAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(DictionaryModel)
+class DictionaryAdmin(admin.ModelAdmin):
+    list_display = ('words', 'contents')
+    list_display_links = ('words', 'contents')
+    search_fields = ('words', 'contents')
+
