@@ -20,6 +20,7 @@ class SignUp(generics.CreateAPIView):
     def pre_save(self, object):
         object.owner = self.request.user
 
+
     def get(self,request):
         """
         GET method allow

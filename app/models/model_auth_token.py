@@ -42,5 +42,4 @@ class UserModel(models.Model):
 
 
         def encode(self):
-            return encode(self.name, self.id, self.email, self.image)
-
+            return self.name
