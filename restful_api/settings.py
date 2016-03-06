@@ -5,26 +5,24 @@ Django application settings
 Install package
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+#セキュリティ
 SECRET_KEY = 'o&3-ap%7-$z@q1lpbw@(+z5qb2v$4ok^af7g1$5gh4iz-b%(w='
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# 画像データ
+MEDIA_ROOT = os.path.join(BASE_DIR, 'image_file')
+ALLOWED_URL = '/image_file/'
 
-# Application definition
 
+
+# Djangoアプリ definition
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -70,9 +68,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'restful_api.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+# データベース定義
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -98,8 +94,9 @@ REST_FRAMEWORK = {
     ),
 }
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
+
+
+# タイムライン・国別定義
 
 LANGUAGE_CODE = 'ja'
 
@@ -111,10 +108,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# static html/javascript/css
 STATIC_URL = '/static/'
 
 

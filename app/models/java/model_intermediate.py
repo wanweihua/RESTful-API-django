@@ -5,7 +5,7 @@ Java中級
 """
 from django.db import models
 
-class Intermediate(models.Model):
+class IntermediateModel(models.Model):
 
     title = models.CharField(max_length=200)
     description = models.TextField()

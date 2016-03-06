@@ -16,9 +16,11 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from app.routes.urls import java_router, python_router, android_router, java_time, python_time, dictionary_router
+from app.routes.urls import java_router, python_router, android_router, java_time, python_time, dictionary_router, \
+    image_router
 from rest_framework.authtoken import views as auth_views
 from app.views.set_view_auth import SignUp
+from restful_api import settings
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -26,6 +28,7 @@ urlpatterns = [
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^sign-up/$', SignUp.as_view(), name="sign_up"),
     url(r'^api-token-auth/', auth_views.obtain_auth_token, name='auth-api'),
+    url(r'^media/(?P<path>.*)$','django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
     url(r'^api/v1/', include(dictionary_router.urls, namespace='dictionry_api')),
 
@@ -36,4 +39,5 @@ urlpatterns = [
     url(r'^api/v1/python/', include(python_time.urls, namespace='python_timeline_api')),
 
     url(r'^api/v1/android/', include(android_router.urls, namespace='android_api')),
+
 ]
